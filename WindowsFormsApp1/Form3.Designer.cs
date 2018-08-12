@@ -29,43 +29,46 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GAMELISTA));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnTraslateAllFromOrigin = new System.Windows.Forms.Button();
+            this.btnTraslateSelectToOrigin = new System.Windows.Forms.Button();
+            this.btnTraslateSelectFromOrigin = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listViewOrigin = new System.Windows.Forms.ListView();
+            this.listViewDestiny = new System.Windows.Forms.ListView();
+            this.btnDeleteSelect = new System.Windows.Forms.Button();
+            this.btnAddValue = new System.Windows.Forms.Button();
+            this.txtAddValueToOrigin = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnTraslateAllFromOrigin
             // 
-            this.button1.Location = new System.Drawing.Point(367, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = ">>";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTraslateAllFromOrigin.Location = new System.Drawing.Point(367, 58);
+            this.btnTraslateAllFromOrigin.Name = "btnTraslateAllFromOrigin";
+            this.btnTraslateAllFromOrigin.Size = new System.Drawing.Size(35, 23);
+            this.btnTraslateAllFromOrigin.TabIndex = 0;
+            this.btnTraslateAllFromOrigin.Text = ">>";
+            this.btnTraslateAllFromOrigin.UseVisualStyleBackColor = true;
+            this.btnTraslateAllFromOrigin.Click += new System.EventHandler(this.btnTraslateAllFromOrigin_Click);
             // 
-            // button2
+            // btnTraslateSelectToOrigin
             // 
-            this.button2.Location = new System.Drawing.Point(260, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(37, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "<";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTraslateSelectToOrigin.Location = new System.Drawing.Point(260, 58);
+            this.btnTraslateSelectToOrigin.Name = "btnTraslateSelectToOrigin";
+            this.btnTraslateSelectToOrigin.Size = new System.Drawing.Size(37, 23);
+            this.btnTraslateSelectToOrigin.TabIndex = 1;
+            this.btnTraslateSelectToOrigin.Text = "<";
+            this.btnTraslateSelectToOrigin.UseVisualStyleBackColor = true;
+            this.btnTraslateSelectToOrigin.Click += new System.EventHandler(this.btnTraslateSelectToOrigin_Click);
             // 
-            // button3
+            // btnTraslateSelectFromOrigin
             // 
-            this.button3.Location = new System.Drawing.Point(315, 58);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = ">";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnTraslateSelectFromOrigin.Location = new System.Drawing.Point(315, 58);
+            this.btnTraslateSelectFromOrigin.Name = "btnTraslateSelectFromOrigin";
+            this.btnTraslateSelectFromOrigin.Size = new System.Drawing.Size(35, 23);
+            this.btnTraslateSelectFromOrigin.TabIndex = 2;
+            this.btnTraslateSelectFromOrigin.Text = ">";
+            this.btnTraslateSelectFromOrigin.UseVisualStyleBackColor = true;
+            this.btnTraslateSelectFromOrigin.Click += new System.EventHandler(this.btnTraslateSelectFromOrigin_Click);
             // 
             // button4
             // 
@@ -77,61 +80,63 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // listView1
+            // listViewOrigin
             // 
-            this.listView1.Location = new System.Drawing.Point(13, 13);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(241, 235);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewOrigin.Location = new System.Drawing.Point(13, 13);
+            this.listViewOrigin.Name = "listViewOrigin";
+            this.listViewOrigin.Size = new System.Drawing.Size(241, 235);
+            this.listViewOrigin.TabIndex = 4;
+            this.listViewOrigin.UseCompatibleStateImageBehavior = false;
             // 
-            // listView2
+            // listViewDestiny
             // 
-            this.listView2.Location = new System.Drawing.Point(408, 13);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(241, 235);
-            this.listView2.TabIndex = 5;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listViewDestiny.Location = new System.Drawing.Point(408, 13);
+            this.listViewDestiny.Name = "listViewDestiny";
+            this.listViewDestiny.Size = new System.Drawing.Size(241, 235);
+            this.listViewDestiny.TabIndex = 5;
+            this.listViewDestiny.UseCompatibleStateImageBehavior = false;
             // 
-            // button5
+            // btnDeleteSelect
             // 
-            this.button5.Location = new System.Drawing.Point(315, 97);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(35, 23);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "...";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnDeleteSelect.Location = new System.Drawing.Point(315, 97);
+            this.btnDeleteSelect.Name = "btnDeleteSelect";
+            this.btnDeleteSelect.Size = new System.Drawing.Size(35, 23);
+            this.btnDeleteSelect.TabIndex = 6;
+            this.btnDeleteSelect.Text = "...";
+            this.btnDeleteSelect.UseVisualStyleBackColor = true;
+            this.btnDeleteSelect.Click += new System.EventHandler(this.btnDeleteSelect_Click);
             // 
-            // button6
+            // btnAddValue
             // 
-            this.button6.Location = new System.Drawing.Point(13, 298);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "AGREGAR";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnAddValue.Location = new System.Drawing.Point(13, 298);
+            this.btnAddValue.Name = "btnAddValue";
+            this.btnAddValue.Size = new System.Drawing.Size(75, 23);
+            this.btnAddValue.TabIndex = 7;
+            this.btnAddValue.Text = "AGREGAR";
+            this.btnAddValue.UseVisualStyleBackColor = true;
+            this.btnAddValue.Click += new System.EventHandler(this.btnAddValue_Click);
             // 
-            // textBox1
+            // txtAddValueToOrigin
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 267);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(241, 20);
-            this.textBox1.TabIndex = 8;
+            this.txtAddValueToOrigin.Location = new System.Drawing.Point(13, 267);
+            this.txtAddValueToOrigin.Name = "txtAddValueToOrigin";
+            this.txtAddValueToOrigin.Size = new System.Drawing.Size(241, 20);
+            this.txtAddValueToOrigin.TabIndex = 8;
             // 
             // GAMELISTA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 341);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.txtAddValueToOrigin);
+            this.Controls.Add(this.btnAddValue);
+            this.Controls.Add(this.btnDeleteSelect);
+            this.Controls.Add(this.listViewDestiny);
+            this.Controls.Add(this.listViewOrigin);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnTraslateSelectFromOrigin);
+            this.Controls.Add(this.btnTraslateSelectToOrigin);
+            this.Controls.Add(this.btnTraslateAllFromOrigin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GAMELISTA";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -143,14 +148,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnTraslateAllFromOrigin;
+        private System.Windows.Forms.Button btnTraslateSelectToOrigin;
+        private System.Windows.Forms.Button btnTraslateSelectFromOrigin;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ListView listViewOrigin;
+        private System.Windows.Forms.ListView listViewDestiny;
+        private System.Windows.Forms.Button btnDeleteSelect;
+        private System.Windows.Forms.Button btnAddValue;
+        private System.Windows.Forms.TextBox txtAddValueToOrigin;
     }
 }

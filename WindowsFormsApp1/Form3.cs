@@ -15,6 +15,9 @@ namespace WindowsFormsApp1
         public GAMELISTA()
         {
             InitializeComponent();
+
+            this.listViewOrigin.MultiSelect = false;
+            this.listViewDestiny.MultiSelect = false;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -22,6 +25,39 @@ namespace WindowsFormsApp1
             GAMEOPTIONS opciones = new GAMEOPTIONS();
             this.Hide();
             opciones.Show();
+        }
+
+        private void btnAddValue_Click(object sender, EventArgs e)
+        {
+            this.listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text.ToString());
+            this.txtAddValueToOrigin.Text = "";
+        }
+
+        private void btnDeleteSelect_Click(object sender, EventArgs e)
+        {
+            var itemSelect = listViewDestiny.SelectedItems;
+            this.listViewDestiny.Items.Remove(itemSelect[0]);
+        }
+
+        private void btnTraslateSelectFromOrigin_Click(object sender, EventArgs e)
+        {
+            var itemSelect = listViewOrigin.SelectedItems;
+            this.listViewDestiny.Items.Add(itemSelect[0].Text);
+        }
+
+        private void btnTraslateSelectToOrigin_Click(object sender, EventArgs e)
+        {
+            var itemSelect = listViewDestiny.SelectedItems;
+            this.listViewOrigin.Items.Add(itemSelect[0].Text);
+        }
+
+        private void btnTraslateAllFromOrigin_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < listViewOrigin.Items.Count; i++)
+            {
+                listViewDestiny.Items.Add(listViewOrigin.Items[i].Text);
+            }
+            
         }
     }
 }
