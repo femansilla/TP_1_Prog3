@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class GAMEOPTIONS
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,20 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GAMEOPTIONS));
+            this.BTNFORMULARIO = new System.Windows.Forms.Button();
+            this.BTNLISTA = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Form1
+            // BTNFORMULARIO
+            // 
+            this.BTNFORMULARIO.Location = new System.Drawing.Point(12, 28);
+            this.BTNFORMULARIO.Name = "BTNFORMULARIO";
+            this.BTNFORMULARIO.Size = new System.Drawing.Size(209, 41);
+            this.BTNFORMULARIO.TabIndex = 0;
+            this.BTNFORMULARIO.Text = "JUGAR CON EL FORMULARIO";
+            this.BTNFORMULARIO.UseVisualStyleBackColor = true;
+            this.BTNFORMULARIO.Click += new System.EventHandler(this.BTNFORMULARIO_Click);
+            // 
+            // BTNLISTA
+            // 
+            this.BTNLISTA.Location = new System.Drawing.Point(268, 28);
+            this.BTNLISTA.Name = "BTNLISTA";
+            this.BTNLISTA.Size = new System.Drawing.Size(209, 41);
+            this.BTNLISTA.TabIndex = 1;
+            this.BTNLISTA.Text = "JUGAR CON LA LISTA";
+            this.BTNLISTA.UseVisualStyleBackColor = false;
+            this.BTNLISTA.Click += new System.EventHandler(this.BTNLISTA_Click);
+            // 
+            // GAMEOPTIONS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(320, 328);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(489, 90);
+            this.Controls.Add(this.BTNLISTA);
+            this.Controls.Add(this.BTNFORMULARIO);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "GAMEOPTIONS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ELEGIR JUEGO";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button BTNFORMULARIO;
+        private System.Windows.Forms.Button BTNLISTA;
     }
 }
 
