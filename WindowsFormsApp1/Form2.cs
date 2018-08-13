@@ -30,20 +30,22 @@ namespace WindowsFormsApp1
             this.Hide();
             opciones.Show();
         }
-
-        private void txtNombre_MouseHover(object sender, EventArgs e)
+        
+        private void txtNombre_KeyUp(object sender, KeyEventArgs e)
         {
-            this.txtNombre.BackColor = Color.Aqua;
+            if (this.txtNombre.Text.Length < 4)
+                txtNombre.BackColor = Color.IndianRed;
+            else
+                txtNombre.BackColor = Color.White;
+
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtApellido_KeyUp(object sender, KeyEventArgs e)
         {
-
-        }
-
-        private void GAMEFORM_Load(object sender, EventArgs e)
-        {
-
+            if (this.txtApellido.Text.Length < 3)
+                txtApellido.BackColor = Color.IndianRed;
+            else
+                txtApellido.BackColor = Color.White;
         }
     }
 }

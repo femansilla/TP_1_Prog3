@@ -183,7 +183,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 20);
             this.txtNombre.TabIndex = 13;
-            this.txtNombre.MouseHover += new System.EventHandler(this.txtNombre_MouseHover);
+            this.txtNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyUp);
             // 
             // txtApellido
             // 
@@ -191,13 +191,15 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(200, 20);
             this.txtApellido.TabIndex = 14;
+            this.txtApellido.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyUp);
             // 
             // lblAge
             // 
             this.lblAge.AutoSize = true;
-            this.lblAge.Location = new System.Drawing.Point(287, 99);
+            this.lblAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAge.Location = new System.Drawing.Point(287, 98);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(0, 13);
+            this.lblAge.Size = new System.Drawing.Size(0, 15);
             this.lblAge.TabIndex = 15;
             // 
             // checkedListBox1
@@ -207,7 +209,6 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 19);
             this.checkedListBox1.TabIndex = 16;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // GAMEFORM
             // 
@@ -235,7 +236,6 @@
             this.Name = "GAMEFORM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORMULARIO";
-            this.Load += new System.EventHandler(this.GAMEFORM_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -122,6 +122,7 @@
             this.txtAddValueToOrigin.Name = "txtAddValueToOrigin";
             this.txtAddValueToOrigin.Size = new System.Drawing.Size(241, 20);
             this.txtAddValueToOrigin.TabIndex = 8;
+            this.txtAddValueToOrigin.TextChanged += new System.EventHandler(this.txtAddValueToOrigin_TextChanged);
             // 
             // GAMELISTA
             // 
