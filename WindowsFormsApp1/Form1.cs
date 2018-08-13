@@ -15,6 +15,11 @@ namespace WindowsFormsApp1
         public GAMEOPTIONS()
         {
             InitializeComponent();
+            BackColor = Color.Gray;
+
+            BTNFORMULARIO.BackColor = Color.MediumSeaGreen;
+            BTNLISTA.BackColor = Color.MediumSeaGreen;
+            //TransparencyKey = BackColor;
         }
 
         private void BTNFORMULARIO_Click(object sender, EventArgs e)

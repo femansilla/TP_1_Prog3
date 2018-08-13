@@ -42,7 +42,7 @@
             // 
             // btnTraslateAllFromOrigin
             // 
-            this.btnTraslateAllFromOrigin.Location = new System.Drawing.Point(367, 58);
+            this.btnTraslateAllFromOrigin.Location = new System.Drawing.Point(263, 58);
             this.btnTraslateAllFromOrigin.Name = "btnTraslateAllFromOrigin";
             this.btnTraslateAllFromOrigin.Size = new System.Drawing.Size(35, 23);
             this.btnTraslateAllFromOrigin.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             // btnTraslateSelectToOrigin
             // 
-            this.btnTraslateSelectToOrigin.Location = new System.Drawing.Point(260, 58);
+            this.btnTraslateSelectToOrigin.Location = new System.Drawing.Point(179, 58);
             this.btnTraslateSelectToOrigin.Name = "btnTraslateSelectToOrigin";
             this.btnTraslateSelectToOrigin.Size = new System.Drawing.Size(37, 23);
             this.btnTraslateSelectToOrigin.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // btnTraslateSelectFromOrigin
             // 
-            this.btnTraslateSelectFromOrigin.Location = new System.Drawing.Point(315, 58);
+            this.btnTraslateSelectFromOrigin.Location = new System.Drawing.Point(222, 58);
             this.btnTraslateSelectFromOrigin.Name = "btnTraslateSelectFromOrigin";
             this.btnTraslateSelectFromOrigin.Size = new System.Drawing.Size(35, 23);
             this.btnTraslateSelectFromOrigin.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(574, 312);
+            this.button4.Location = new System.Drawing.Point(390, 318);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 3;
@@ -84,21 +84,21 @@
             // 
             this.listViewOrigin.Location = new System.Drawing.Point(13, 13);
             this.listViewOrigin.Name = "listViewOrigin";
-            this.listViewOrigin.Size = new System.Drawing.Size(241, 235);
+            this.listViewOrigin.Size = new System.Drawing.Size(160, 235);
             this.listViewOrigin.TabIndex = 4;
             this.listViewOrigin.UseCompatibleStateImageBehavior = false;
             // 
             // listViewDestiny
             // 
-            this.listViewDestiny.Location = new System.Drawing.Point(408, 13);
+            this.listViewDestiny.Location = new System.Drawing.Point(304, 13);
             this.listViewDestiny.Name = "listViewDestiny";
-            this.listViewDestiny.Size = new System.Drawing.Size(241, 235);
+            this.listViewDestiny.Size = new System.Drawing.Size(161, 235);
             this.listViewDestiny.TabIndex = 5;
             this.listViewDestiny.UseCompatibleStateImageBehavior = false;
             // 
             // btnDeleteSelect
             // 
-            this.btnDeleteSelect.Location = new System.Drawing.Point(315, 97);
+            this.btnDeleteSelect.Location = new System.Drawing.Point(222, 87);
             this.btnDeleteSelect.Name = "btnDeleteSelect";
             this.btnDeleteSelect.Size = new System.Drawing.Size(35, 23);
             this.btnDeleteSelect.TabIndex = 6;
@@ -120,7 +120,7 @@
             // 
             this.txtAddValueToOrigin.Location = new System.Drawing.Point(13, 267);
             this.txtAddValueToOrigin.Name = "txtAddValueToOrigin";
-            this.txtAddValueToOrigin.Size = new System.Drawing.Size(241, 20);
+            this.txtAddValueToOrigin.Size = new System.Drawing.Size(160, 20);
             this.txtAddValueToOrigin.TabIndex = 8;
             this.txtAddValueToOrigin.TextChanged += new System.EventHandler(this.txtAddValueToOrigin_TextChanged);
             // 
@@ -128,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 341);
+            this.ClientSize = new System.Drawing.Size(483, 353);
             this.Controls.Add(this.txtAddValueToOrigin);
             this.Controls.Add(this.btnAddValue);
             this.Controls.Add(this.btnDeleteSelect);

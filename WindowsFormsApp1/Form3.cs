@@ -16,6 +16,19 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
+            //TransparencyKey = Color.LimeGreen;
+            //BackColor = Color.SlateGray;
+
+            btnDeleteSelect.BackColor = Color.Tomato;
+            button4.BackColor = Color.Tomato;
+            btnAddValue.BackColor = Color.ForestGreen;
+            btnTraslateAllFromOrigin.BackColor = Color.DarkOliveGreen;
+            btnTraslateSelectToOrigin.BackColor = Color.DarkOliveGreen;
+            btnTraslateSelectFromOrigin.BackColor = Color.DarkOliveGreen;
+
+            listViewDestiny.BackColor = Color.LightSlateGray;
+            listViewOrigin.BackColor = Color.LightSlateGray;
+
             this.listViewOrigin.MultiSelect = false;
             this.listViewDestiny.MultiSelect = false;
         }
@@ -42,12 +55,17 @@ namespace WindowsFormsApp1
 
         private void btnAddValue_Click(object sender, EventArgs e)
         {
-            if(listViewOrigin.Items.Count == 0)
-                this.listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text.ToString());
+            if (txtAddValueToOrigin.Text.ToString().Length < 3)
+                MessageBox.Show("El valor ingresado no es valido, debe superar un minimo de 3 letras.");
             else
             {
-                if(!ValidateExistValueInListOrigin())
+                if (listViewOrigin.Items.Count == 0)
                     this.listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text.ToString());
+                else
+                {
+                    if (!ValidateExistValueInListOrigin())
+                        this.listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text.ToString());
+                }
             }
             
             this.txtAddValueToOrigin.Text = "";
