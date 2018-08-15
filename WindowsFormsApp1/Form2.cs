@@ -15,13 +15,15 @@ namespace WindowsFormsApp1
         public GAMEFORM()
         {
             InitializeComponent();
+            BackColor = Color.LightSteelBlue;
+            btnaceptar.BackColor = Color.MediumSeaGreen;
+            btncancelar.BackColor = Color.Tomato;
+            txtNombre.Select();
         }
 
         private void dateNac_ValueChanged(object sender, EventArgs e)
         {
-            int yearNac = DateTime.Parse(dateNac.Text.ToString()).Year;
-            string age = (DateTime.Today.Year - yearNac).ToString();
-            this.lblAge.Text = "EDAD: " + age;
+            this.lblAge.Text = "EDAD: " + (DateTime.Today.Year - DateTime.Parse(dateNac.Text.ToString()).Year).ToString();
         }
 
         private void btncancelar_Click(object sender, EventArgs e)
@@ -31,21 +33,54 @@ namespace WindowsFormsApp1
             opciones.Show();
         }
         
+        private void validateLengthInput(bool whatsInput)
+        {
+            if(!whatsInput)
+            {
+                if (this.txtNombre.Text.Length < 4)
+                    txtNombre.BackColor = Color.IndianRed;
+                else
+                    txtNombre.BackColor = Color.White;
+            }
+            if(whatsInput)
+            {
+                if (this.txtApellido.Text.Length < 3)
+                    txtApellido.BackColor = Color.IndianRed;
+                else
+                    txtApellido.BackColor = Color.White;
+            }
+        }
+
         private void txtNombre_KeyUp(object sender, KeyEventArgs e)
         {
-            if (this.txtNombre.Text.Length < 4)
-                txtNombre.BackColor = Color.IndianRed;
-            else
-                txtNombre.BackColor = Color.White;
-
+            validateLengthInput(false);
         }
 
         private void txtApellido_KeyUp(object sender, KeyEventArgs e)
         {
-            if (this.txtApellido.Text.Length < 3)
-                txtApellido.BackColor = Color.IndianRed;
-            else
-                txtApellido.BackColor = Color.White;
+            validateLengthInput(true);
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                validateLengthInput(false);
+                txtApellido.Focus();
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                validateLengthInput(true);
+        }
+
+        private void btnaceptar_Click(object sender, EventArgs e)
+        {
+
+            info frm = new info();
+            frm.ShowDialog(this);
         }
     }
 }

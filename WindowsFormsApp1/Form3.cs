@@ -16,18 +16,24 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
 
+            txtAddValueToOrigin.Select();
             //TransparencyKey = Color.LimeGreen;
-            //BackColor = Color.SlateGray;
-
+            BackColor = Color.LightSteelBlue;
+            //BackColor = Color.MediumSeaGreen;
             btnDeleteSelect.BackColor = Color.Tomato;
             button4.BackColor = Color.Tomato;
-            btnAddValue.BackColor = Color.ForestGreen;
+            btnAddValue.BackColor = Color.MediumSeaGreen;
             btnTraslateAllFromOrigin.BackColor = Color.DarkOliveGreen;
             btnTraslateSelectToOrigin.BackColor = Color.DarkOliveGreen;
             btnTraslateSelectFromOrigin.BackColor = Color.DarkOliveGreen;
 
             listViewDestiny.BackColor = Color.LightSlateGray;
             listViewOrigin.BackColor = Color.LightSlateGray;
+
+            listViewOrigin.View = View.Details;
+            listViewDestiny.View = View.Details;
+            listViewDestiny.Columns.Add("Values", 155);
+            listViewOrigin.Columns.Add("Values", 155);
 
             this.listViewOrigin.MultiSelect = false;
             this.listViewDestiny.MultiSelect = false;
@@ -53,7 +59,7 @@ namespace WindowsFormsApp1
             return false;
         }
 
-        private void btnAddValue_Click(object sender, EventArgs e)
+        private void AddValue(EventArgs e)
         {
             if (txtAddValueToOrigin.Text.ToString().Length < 3)
                 MessageBox.Show("El valor ingresado no es valido, debe superar un minimo de 3 letras.");
@@ -67,9 +73,14 @@ namespace WindowsFormsApp1
                         this.listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text.ToString());
                 }
             }
-            
+
             this.txtAddValueToOrigin.Text = "";
             this.txtAddValueToOrigin.BackColor = Color.White;
+        }
+
+        private void btnAddValue_Click(object sender, EventArgs e)
+        {
+            AddValue(e);
         }
 
         private void btnDeleteSelect_Click(object sender, EventArgs e)
@@ -180,6 +191,14 @@ namespace WindowsFormsApp1
                 txtAddValueToOrigin.BackColor = Color.IndianRed;
             else
                 txtAddValueToOrigin.BackColor = Color.White;
+        }
+
+        private void txtAddValueToOrigin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                AddValue(e);
+            }
         }
     }
 }

@@ -72,9 +72,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(390, 318);
+            this.button4.Location = new System.Drawing.Point(373, 309);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(92, 32);
             this.button4.TabIndex = 3;
             this.button4.Text = "VOLVER";
             this.button4.UseVisualStyleBackColor = true;
@@ -108,9 +108,9 @@
             // 
             // btnAddValue
             // 
-            this.btnAddValue.Location = new System.Drawing.Point(13, 298);
+            this.btnAddValue.Location = new System.Drawing.Point(13, 309);
             this.btnAddValue.Name = "btnAddValue";
-            this.btnAddValue.Size = new System.Drawing.Size(75, 23);
+            this.btnAddValue.Size = new System.Drawing.Size(92, 32);
             this.btnAddValue.TabIndex = 7;
             this.btnAddValue.Text = "AGREGAR";
             this.btnAddValue.UseVisualStyleBackColor = true;
@@ -123,6 +123,7 @@
             this.txtAddValueToOrigin.Size = new System.Drawing.Size(160, 20);
             this.txtAddValueToOrigin.TabIndex = 8;
             this.txtAddValueToOrigin.TextChanged += new System.EventHandler(this.txtAddValueToOrigin_TextChanged);
+            this.txtAddValueToOrigin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddValueToOrigin_KeyPress);
             // 
             // GAMELISTA
             // 

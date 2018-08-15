@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
         public GAMEOPTIONS()
         {
             InitializeComponent();
-            BackColor = Color.Gray;
+            BackColor = Color.LightSteelBlue;
 
             BTNFORMULARIO.BackColor = Color.MediumSeaGreen;
             BTNLISTA.BackColor = Color.MediumSeaGreen;
