@@ -35,7 +35,7 @@
             // 
             // BTNFORMULARIO
             // 
-            this.BTNFORMULARIO.Location = new System.Drawing.Point(12, 28);
+            this.BTNFORMULARIO.Location = new System.Drawing.Point(12, 12);
             this.BTNFORMULARIO.Name = "BTNFORMULARIO";
             this.BTNFORMULARIO.Size = new System.Drawing.Size(209, 41);
             this.BTNFORMULARIO.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // BTNLISTA
             // 
-            this.BTNLISTA.Location = new System.Drawing.Point(268, 28);
+            this.BTNLISTA.Location = new System.Drawing.Point(268, 12);
             this.BTNLISTA.Name = "BTNLISTA";
             this.BTNLISTA.Size = new System.Drawing.Size(209, 41);
             this.BTNLISTA.TabIndex = 1;
@@ -57,10 +57,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 90);
+            this.ClientSize = new System.Drawing.Size(489, 65);
             this.Controls.Add(this.BTNLISTA);
             this.Controls.Add(this.BTNFORMULARIO);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "GAMEOPTIONS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ELEGIR JUEGO";
