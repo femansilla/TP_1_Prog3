@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Dynamic;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -16,9 +18,18 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             BackColor = Color.LightSteelBlue;
+            TransparencyKey = Color.Aqua;
             btnaceptar.BackColor = Color.MediumSeaGreen;
             btncancelar.BackColor = Color.Tomato;
             txtNombre.Select();
+            this.MusicStylesList.Items.Add("Rap");
+            this.MusicStylesList.Items.Add("Rock");
+            this.MusicStylesList.Items.Add("Electronica");
+            this.MusicStylesList.Items.Add("Jazz");
+            this.MusicStylesList.Items.Add("Clasica");
+            this.MusicStylesList.Items.Add("Regge");
+            MusicStylesList.View = View.SmallIcon;
+            ColourCHKList.CheckOnClick = true;
         }
 
         private void dateNac_ValueChanged(object sender, EventArgs e)
@@ -32,17 +43,17 @@ namespace WindowsFormsApp1
             this.Hide();
             opciones.Show();
         }
-        
+
         private void validateLengthInput(bool whatsInput)
         {
-            if(!whatsInput)
+            if (!whatsInput)
             {
                 if (this.txtNombre.Text.Length < 4)
                     txtNombre.BackColor = Color.IndianRed;
                 else
                     txtNombre.BackColor = Color.White;
             }
-            if(whatsInput)
+            if (whatsInput)
             {
                 if (this.txtApellido.Text.Length < 3)
                     txtApellido.BackColor = Color.IndianRed;
@@ -76,11 +87,93 @@ namespace WindowsFormsApp1
                 validateLengthInput(true);
         }
 
+        private string sendInfo()
+        {
+            dynamic myObject = new ExpandoObject();
+
+            myObject.Nombre = this.txtNombre.Text;
+            myObject.Apellido = this.txtApellido.Text;
+
+            DateTime date = DateTime.Parse(this.dateNac.Text);
+            myObject.DateNac = date.ToLongDateString();
+
+            if (this.rdoMale.Checked)
+                myObject.sex = "Hombre";
+            else
+                myObject.sex = "Mujer";
+
+
+            List<string> musicStyles = new List<string>();
+            if (MusicStylesList.SelectedItems.Count == 0)
+            {
+                musicStyles.Add("No selecciono ningun estilo musical.");
+            }
+            else
+            {
+                for (int i = 0; i < this.MusicStylesList.SelectedItems.Count; i++)
+                    musicStyles.Add(MusicStylesList.SelectedItems[i].Text);
+            }
+            myObject.musicStyles = musicStyles;
+
+            List<string> FavoriteColours = new List<string>();
+            if (ColourCHKList.CheckedItems.Count == 0)
+            {
+                FavoriteColours.Add("No selecciono ningun color.");
+            }
+            else
+            {
+                for (int i = 0; i < this.ColourCHKList.CheckedItems.Count; i++)
+                    FavoriteColours.Add(ColourCHKList.CheckedItems[i].ToString());
+            }
+            myObject.FavoriteColours = FavoriteColours;
+
+            string json = JsonConvert.SerializeObject(myObject);
+            return json;
+        }
+
+        private bool Validate()
+        {
+            bool ret = true;
+            if(string.IsNullOrEmpty(txtNombre.Text))
+            {
+                ret = false;
+                MessageBox.Show("El campo Nombre no puede estar vacio.\nVerifique por favor.");
+                return ret;
+            }
+
+            if(string.IsNullOrEmpty(txtApellido.Text))
+            {
+                ret = false;
+                MessageBox.Show("El campo Apellido no puede estar vacio.\nVerifique por favor.");
+                return ret;
+            }
+
+            DateTime date = DateTime.Parse(this.dateNac.Text);
+            DateTime dote = DateTime.Today.AddYears(-18);
+            if (date == DateTime.Now || date >= dote)
+            {
+                ret = false;
+                MessageBox.Show("La fecha de nacimiento no es valida.\nVerifique por favor.");
+                return ret;
+            }
+            if (!rdoMale.Checked && !rdoFemale.Checked)
+            {
+                ret = false;
+                MessageBox.Show("Seleccione un genero por favor.");
+                return ret;
+            }
+
+
+            return ret;
+        }
+
         private void btnaceptar_Click(object sender, EventArgs e)
         {
-
-            info frm = new info();
-            frm.ShowDialog(this);
+            if (Validate())
+            {
+                info frm = new info(this.sendInfo());
+                frm.ShowDialog();
+            } 
         }
     }
 }

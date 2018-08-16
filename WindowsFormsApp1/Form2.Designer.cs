@@ -40,17 +40,17 @@
             this.rdoMale = new System.Windows.Forms.RadioButton();
             this.rdoFemale = new System.Windows.Forms.RadioButton();
             this.dateNac = new System.Windows.Forms.DateTimePicker();
-            this.listFavoriteColor = new System.Windows.Forms.ComboBox();
-            this.comboMusicStyle = new System.Windows.Forms.ListBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblAge = new System.Windows.Forms.Label();
+            this.MusicStylesList = new System.Windows.Forms.ListView();
+            this.ColourCHKList = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Location = new System.Drawing.Point(6, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 64);
+            this.label2.Location = new System.Drawing.Point(6, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 1;
@@ -68,7 +68,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 100);
+            this.label3.Location = new System.Drawing.Point(6, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 13);
             this.label3.TabIndex = 2;
@@ -77,7 +77,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 133);
+            this.label4.Location = new System.Drawing.Point(6, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 3;
@@ -86,7 +86,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 165);
+            this.label5.Location = new System.Drawing.Point(6, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 13);
             this.label5.TabIndex = 4;
@@ -95,7 +95,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 202);
+            this.label6.Location = new System.Drawing.Point(6, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 13);
             this.label6.TabIndex = 5;
@@ -103,9 +103,9 @@
             // 
             // btncancelar
             // 
-            this.btncancelar.Location = new System.Drawing.Point(372, 246);
+            this.btncancelar.Location = new System.Drawing.Point(387, 300);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(118, 49);
+            this.btncancelar.Size = new System.Drawing.Size(107, 49);
             this.btncancelar.TabIndex = 6;
             this.btncancelar.Text = "VOLVER";
             this.btncancelar.UseVisualStyleBackColor = true;
@@ -113,9 +113,9 @@
             // 
             // btnaceptar
             // 
-            this.btnaceptar.Location = new System.Drawing.Point(248, 246);
+            this.btnaceptar.Location = new System.Drawing.Point(274, 300);
             this.btnaceptar.Name = "btnaceptar";
-            this.btnaceptar.Size = new System.Drawing.Size(118, 49);
+            this.btnaceptar.Size = new System.Drawing.Size(107, 49);
             this.btnaceptar.TabIndex = 7;
             this.btnaceptar.Text = "ACEPTAR";
             this.btnaceptar.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             // rdoMale
             // 
             this.rdoMale.AutoSize = true;
-            this.rdoMale.Location = new System.Drawing.Point(166, 131);
+            this.rdoMale.Location = new System.Drawing.Point(152, 109);
             this.rdoMale.Name = "rdoMale";
             this.rdoMale.Size = new System.Drawing.Size(88, 17);
             this.rdoMale.TabIndex = 8;
@@ -135,7 +135,7 @@
             // rdoFemale
             // 
             this.rdoFemale.AutoSize = true;
-            this.rdoFemale.Location = new System.Drawing.Point(285, 131);
+            this.rdoFemale.Location = new System.Drawing.Point(269, 107);
             this.rdoFemale.Name = "rdoFemale";
             this.rdoFemale.Size = new System.Drawing.Size(81, 17);
             this.rdoFemale.TabIndex = 9;
@@ -145,52 +145,30 @@
             // 
             // dateNac
             // 
+            this.dateNac.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateNac.Location = new System.Drawing.Point(166, 93);
+            this.dateNac.Location = new System.Drawing.Point(152, 75);
             this.dateNac.Name = "dateNac";
-            this.dateNac.Size = new System.Drawing.Size(100, 20);
+            this.dateNac.Size = new System.Drawing.Size(107, 22);
             this.dateNac.TabIndex = 10;
             this.dateNac.ValueChanged += new System.EventHandler(this.dateNac_ValueChanged);
             // 
-            // listFavoriteColor
-            // 
-            this.listFavoriteColor.FormattingEnabled = true;
-            this.listFavoriteColor.Location = new System.Drawing.Point(166, 194);
-            this.listFavoriteColor.Name = "listFavoriteColor";
-            this.listFavoriteColor.Size = new System.Drawing.Size(121, 21);
-            this.listFavoriteColor.TabIndex = 11;
-            // 
-            // comboMusicStyle
-            // 
-            this.comboMusicStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboMusicStyle.FormattingEnabled = true;
-            this.comboMusicStyle.ItemHeight = 18;
-            this.comboMusicStyle.Items.AddRange(new object[] {
-            "Pop",
-            "Música Electrónica",
-            "Rock N` Roll",
-            "Rap",
-            "Reggae",
-            "Heavy Metal"});
-            this.comboMusicStyle.Location = new System.Drawing.Point(166, 156);
-            this.comboMusicStyle.Name = "comboMusicStyle";
-            this.comboMusicStyle.Size = new System.Drawing.Size(186, 22);
-            this.comboMusicStyle.TabIndex = 12;
-            // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(166, 26);
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(152, 23);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(200, 20);
+            this.txtNombre.Size = new System.Drawing.Size(200, 22);
             this.txtNombre.TabIndex = 13;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             this.txtNombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyUp);
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(166, 57);
+            this.txtApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellido.Location = new System.Drawing.Point(152, 49);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(200, 20);
+            this.txtApellido.Size = new System.Drawing.Size(200, 22);
             this.txtApellido.TabIndex = 14;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             this.txtApellido.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtApellido_KeyUp);
@@ -198,22 +176,48 @@
             // lblAge
             // 
             this.lblAge.AutoSize = true;
-            this.lblAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAge.Location = new System.Drawing.Point(287, 98);
+            this.lblAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAge.Location = new System.Drawing.Point(290, 80);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(0, 15);
+            this.lblAge.Size = new System.Drawing.Size(0, 16);
             this.lblAge.TabIndex = 15;
+            // 
+            // MusicStylesList
+            // 
+            this.MusicStylesList.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.MusicStylesList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MusicStylesList.Location = new System.Drawing.Point(152, 132);
+            this.MusicStylesList.Name = "MusicStylesList";
+            this.MusicStylesList.Size = new System.Drawing.Size(304, 58);
+            this.MusicStylesList.TabIndex = 16;
+            this.MusicStylesList.UseCompatibleStateImageBehavior = false;
+            // 
+            // ColourCHKList
+            // 
+            this.ColourCHKList.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ColourCHKList.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColourCHKList.FormattingEnabled = true;
+            this.ColourCHKList.Items.AddRange(new object[] {
+            "Verde",
+            "Azul",
+            "Rojo",
+            "Negro",
+            "Naranja"});
+            this.ColourCHKList.Location = new System.Drawing.Point(152, 205);
+            this.ColourCHKList.Name = "ColourCHKList";
+            this.ColourCHKList.Size = new System.Drawing.Size(107, 89);
+            this.ColourCHKList.TabIndex = 17;
             // 
             // GAMEFORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 309);
+            this.ClientSize = new System.Drawing.Size(507, 357);
+            this.Controls.Add(this.ColourCHKList);
+            this.Controls.Add(this.MusicStylesList);
             this.Controls.Add(this.lblAge);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.comboMusicStyle);
-            this.Controls.Add(this.listFavoriteColor);
             this.Controls.Add(this.dateNac);
             this.Controls.Add(this.rdoFemale);
             this.Controls.Add(this.rdoMale);
@@ -247,10 +251,10 @@
         private System.Windows.Forms.RadioButton rdoMale;
         private System.Windows.Forms.RadioButton rdoFemale;
         private System.Windows.Forms.DateTimePicker dateNac;
-        private System.Windows.Forms.ComboBox listFavoriteColor;
-        private System.Windows.Forms.ListBox comboMusicStyle;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblAge;
+        private System.Windows.Forms.ListView MusicStylesList;
+        private System.Windows.Forms.CheckedListBox ColourCHKList;
     }
 }
