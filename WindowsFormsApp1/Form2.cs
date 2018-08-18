@@ -22,13 +22,6 @@ namespace WindowsFormsApp1
             btnaceptar.BackColor = Color.MediumSeaGreen;
             btncancelar.BackColor = Color.Tomato;
             txtNombre.Select();
-            this.MusicStylesList.Items.Add("Rap");
-            this.MusicStylesList.Items.Add("Rock");
-            this.MusicStylesList.Items.Add("Electronica");
-            this.MusicStylesList.Items.Add("Jazz");
-            this.MusicStylesList.Items.Add("Clasica");
-            this.MusicStylesList.Items.Add("Regge");
-            MusicStylesList.View = View.SmallIcon;
             ColourCHKList.CheckOnClick = true;
         }
 
@@ -87,48 +80,77 @@ namespace WindowsFormsApp1
                 validateLengthInput(true);
         }
 
-        private string sendInfo()
+        private PersonModel sendInfo()
         {
-            dynamic myObject = new ExpandoObject();
+            //dynamic myObject = new ExpandoObject();
 
-            myObject.Nombre = this.txtNombre.Text;
-            myObject.Apellido = this.txtApellido.Text;
+            //myObject.Nombre = this.txtNombre.Text;
+            //myObject.Apellido = this.txtApellido.Text;
 
-            DateTime date = DateTime.Parse(this.dateNac.Text);
-            myObject.DateNac = date.ToLongDateString();
+            //DateTime date = DateTime.Parse(this.dateNac.Text);
+            //myObject.DateNac = date.ToLongDateString();
+
+            //if (this.rdoMale.Checked)
+            //    myObject.sex = "Hombre";
+            //else
+            //    myObject.sex = "Mujer";
+
+            //if (cmbMusicStyles.SelectedItem != null)
+            //{
+            //    myObject.musicStyles = cmbMusicStyles.SelectedItem;
+            //}
+            //else
+            //{
+            //    myObject.musicStyles = "No selecciono ningun estilo musical.";
+            //}
+
+            //List<string> FavoriteColours = new List<string>();
+            //if (ColourCHKList.CheckedItems.Count == 0)
+            //{
+            //    FavoriteColours.Add("No selecciono ningun color.");
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < this.ColourCHKList.CheckedItems.Count; i++)
+            //        FavoriteColours.Add(ColourCHKList.CheckedItems[i].ToString());
+            //}
+            //myObject.FavoriteColours = FavoriteColours;
+
+            //string json = JsonConvert.SerializeObject(myObject);
+            //return json;
+            //----------------- fin forma flayera ------------------------
+            PersonModel person = new PersonModel();
+
+            person.Nombre = txtNombre.Text;
+            person.Apellido = txtApellido.Text;
+            person.dateNac = DateTime.Parse(this.dateNac.Text);
 
             if (this.rdoMale.Checked)
-                myObject.sex = "Hombre";
+                person.sex = true;
             else
-                myObject.sex = "Mujer";
+                person.sex = false;
 
-
-            List<string> musicStyles = new List<string>();
-            if (MusicStylesList.SelectedItems.Count == 0)
-            {
-                musicStyles.Add("No selecciono ningun estilo musical.");
-            }
-            else
-            {
-                for (int i = 0; i < this.MusicStylesList.SelectedItems.Count; i++)
-                    musicStyles.Add(MusicStylesList.SelectedItems[i].Text);
-            }
-            myObject.musicStyles = musicStyles;
-
-            List<string> FavoriteColours = new List<string>();
             if (ColourCHKList.CheckedItems.Count == 0)
             {
-                FavoriteColours.Add("No selecciono ningun color.");
+                person.favoriteColour.Add("No selecciono ningun color.");
             }
             else
             {
-                for (int i = 0; i < this.ColourCHKList.CheckedItems.Count; i++)
-                    FavoriteColours.Add(ColourCHKList.CheckedItems[i].ToString());
+                foreach(string colour in ColourCHKList.CheckedItems)
+                    person.favoriteColour.Add(colour);
             }
-            myObject.FavoriteColours = FavoriteColours;
 
-            string json = JsonConvert.SerializeObject(myObject);
-            return json;
+
+            if (cmbMusicStyles.SelectedItem != null)
+            {
+                person.musicStyles = cmbMusicStyles.SelectedItem.ToString();
+            }
+            else
+            {
+                person.musicStyles = "No selecciono ningun estilo musical.";
+            }
+           
+            return person;
         }
 
         private bool Validate()
@@ -174,6 +196,11 @@ namespace WindowsFormsApp1
                 info frm = new info(this.sendInfo());
                 frm.ShowDialog();
             } 
+        }
+
+        private void cmbMusicStyles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var mierda = cmbMusicStyles.SelectedItem;
         }
     }
 }

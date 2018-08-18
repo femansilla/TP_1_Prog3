@@ -59,18 +59,18 @@ namespace WindowsFormsApp1
             return false;
         }
 
-        private void AddValue(EventArgs e)
+        private void AddValue()
         {
             if (txtAddValueToOrigin.Text.ToString().Length < 3)
                 MessageBox.Show("El valor ingresado no es valido, debe superar un minimo de 3 letras.");
             else
             {
                 if (listViewOrigin.Items.Count == 0)
-                    this.listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text.ToString());
+                    listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text.ToString());                    
                 else
                 {
                     if (!ValidateExistValueInListOrigin())
-                        this.listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text.ToString());
+                        listViewOrigin.Items.Add(this.txtAddValueToOrigin.Text);
                 }
             }
 
@@ -80,7 +80,7 @@ namespace WindowsFormsApp1
 
         private void btnAddValue_Click(object sender, EventArgs e)
         {
-            AddValue(e);
+            AddValue();
         }
 
         private void btnDeleteSelect_Click(object sender, EventArgs e)
@@ -105,7 +105,13 @@ namespace WindowsFormsApp1
                 if(validateContainsValue(itemSelect[0].Text, 2))
                     MessageBox.Show("El valor ya existe en la lista destino.");
                 else
-                    this.listViewDestiny.Items.Add(itemSelect[0].Text);
+                {
+                    listViewDestiny.Items.Add(itemSelect[0].Text);
+                    if(listViewOrigin.Items.Contains(itemSelect[0]))
+                        listViewOrigin.Items.Remove(itemSelect[0]);
+                    
+                        
+                } 
             }
         }
 
@@ -122,7 +128,13 @@ namespace WindowsFormsApp1
                 if (validateContainsValue(itemSelect[0].Text, 1))
                     MessageBox.Show("El valor ya existe en la lista destino.");
                 else
-                    this.listViewOrigin.Items.Add(itemSelect[0].Text);
+                {
+                    listViewOrigin.Items.Add(itemSelect[0].Text);
+                    if (listViewDestiny.Items.Contains(itemSelect[0]))
+                        listViewDestiny.Items.Remove(itemSelect[0]);
+                    
+                }
+                   
             }
         }
 
@@ -182,6 +194,7 @@ namespace WindowsFormsApp1
                 {
                     listViewDestiny.Items.Add(listViewOrigin.Items[i].Text);
                 }
+                listViewOrigin.Items.Clear();
             }
         }
 
@@ -197,7 +210,7 @@ namespace WindowsFormsApp1
         {
             if (e.KeyChar == 13)
             {
-                AddValue(e);
+                AddValue();
             }
         }
     }
