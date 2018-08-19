@@ -17,9 +17,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
             txtAddValueToOrigin.Select();
-            //TransparencyKey = Color.LimeGreen;
             BackColor = Color.LightSteelBlue;
-            //BackColor = Color.MediumSeaGreen;
             btnDeleteSelect.BackColor = Color.Tomato;
             button4.BackColor = Color.Tomato;
             btnAddValue.BackColor = Color.MediumSeaGreen;
@@ -42,8 +40,8 @@ namespace WindowsFormsApp1
         private void button4_Click(object sender, EventArgs e)
         {
             GAMEOPTIONS opciones = new GAMEOPTIONS();
-            this.Hide();
             opciones.Show();
+            this.Close();
         }
 
         private bool ValidateExistValueInListOrigin()
@@ -95,12 +93,15 @@ namespace WindowsFormsApp1
         private void btnTraslateSelectFromOrigin_Click(object sender, EventArgs e)
         {
             var itemSelect = listViewOrigin.SelectedItems;
-            if (itemSelect.Count == 0)
+            
+            if(listViewOrigin.Items.Count == 0)
+                MessageBox.Show("La lista de origen esta vacia.");
+            else if(itemSelect.Count == 0)
             {
                 itemSelect = null;
                 MessageBox.Show("No selecciono ningun valor.");
             }
-            if (itemSelect != null)
+            else if (itemSelect != null)
             {
                 if(validateContainsValue(itemSelect[0].Text, 2))
                     MessageBox.Show("El valor ya existe en la lista destino.");
@@ -118,12 +119,14 @@ namespace WindowsFormsApp1
         private void btnTraslateSelectToOrigin_Click(object sender, EventArgs e)
         {
             var itemSelect = listViewDestiny.SelectedItems;
-            if (itemSelect.Count == 0)
+            if (listViewDestiny.Items.Count == 0)
+                MessageBox.Show("La lista destino esta vacia.");
+            else if (itemSelect.Count == 0)
             {
                 itemSelect = null;
                 MessageBox.Show("No selecciono ningun valor.");
             }
-            if (itemSelect != null)
+            else if (itemSelect != null)
             {
                 if (validateContainsValue(itemSelect[0].Text, 1))
                     MessageBox.Show("El valor ya existe en la lista destino.");

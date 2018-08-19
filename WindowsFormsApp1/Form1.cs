@@ -19,21 +19,27 @@ namespace WindowsFormsApp1
 
             BTNFORMULARIO.BackColor = Color.MediumSeaGreen;
             BTNLISTA.BackColor = Color.MediumSeaGreen;
+            btnExit.BackColor = Color.MediumSeaGreen;
             //TransparencyKey = BackColor;
         }
 
         private void BTNFORMULARIO_Click(object sender, EventArgs e)
         {
             GAMEFORM fomulario = new GAMEFORM();
-            this.Hide();
             fomulario.Show();
+            this.Hide();
         }
 
         private void BTNLISTA_Click(object sender, EventArgs e)
         {
             GAMELISTA lista = new GAMELISTA();
-            this.Hide();
             lista.Show();
+            this.Hide();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

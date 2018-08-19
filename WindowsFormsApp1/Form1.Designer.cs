@@ -31,13 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GAMEOPTIONS));
             this.BTNFORMULARIO = new System.Windows.Forms.Button();
             this.BTNLISTA = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BTNFORMULARIO
             // 
             this.BTNFORMULARIO.Location = new System.Drawing.Point(12, 12);
             this.BTNFORMULARIO.Name = "BTNFORMULARIO";
-            this.BTNFORMULARIO.Size = new System.Drawing.Size(209, 41);
+            this.BTNFORMULARIO.Size = new System.Drawing.Size(126, 41);
             this.BTNFORMULARIO.TabIndex = 0;
             this.BTNFORMULARIO.Text = "JUGAR CON EL FORMULARIO";
             this.BTNFORMULARIO.UseVisualStyleBackColor = true;
@@ -45,19 +46,31 @@
             // 
             // BTNLISTA
             // 
-            this.BTNLISTA.Location = new System.Drawing.Point(268, 12);
+            this.BTNLISTA.Location = new System.Drawing.Point(162, 12);
             this.BTNLISTA.Name = "BTNLISTA";
-            this.BTNLISTA.Size = new System.Drawing.Size(209, 41);
+            this.BTNLISTA.Size = new System.Drawing.Size(126, 41);
             this.BTNLISTA.TabIndex = 1;
             this.BTNLISTA.Text = "JUGAR CON LA LISTA";
             this.BTNLISTA.UseVisualStyleBackColor = false;
             this.BTNLISTA.Click += new System.EventHandler(this.BTNLISTA_Click);
             // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(311, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(126, 41);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "SALIR";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // GAMEOPTIONS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 65);
+            this.ClientSize = new System.Drawing.Size(456, 70);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.BTNLISTA);
             this.Controls.Add(this.BTNFORMULARIO);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -73,6 +86,7 @@
 
         private System.Windows.Forms.Button BTNFORMULARIO;
         private System.Windows.Forms.Button BTNLISTA;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 

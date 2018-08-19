@@ -103,7 +103,7 @@
             // 
             // btncancelar
             // 
-            this.btncancelar.Location = new System.Drawing.Point(387, 300);
+            this.btncancelar.Location = new System.Drawing.Point(387, 296);
             this.btncancelar.Name = "btncancelar";
             this.btncancelar.Size = new System.Drawing.Size(107, 49);
             this.btncancelar.TabIndex = 6;
@@ -113,7 +113,7 @@
             // 
             // btnaceptar
             // 
-            this.btnaceptar.Location = new System.Drawing.Point(274, 300);
+            this.btnaceptar.Location = new System.Drawing.Point(274, 296);
             this.btnaceptar.Name = "btnaceptar";
             this.btnaceptar.Size = new System.Drawing.Size(107, 49);
             this.btnaceptar.TabIndex = 7;
@@ -212,13 +212,13 @@
             this.cmbMusicStyles.Name = "cmbMusicStyles";
             this.cmbMusicStyles.Size = new System.Drawing.Size(198, 21);
             this.cmbMusicStyles.TabIndex = 18;
-            this.cmbMusicStyles.SelectedIndexChanged += new System.EventHandler(this.cmbMusicStyles_SelectedIndexChanged);
             // 
             // GAMEFORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 357);
+            this.ControlBox = false;
             this.Controls.Add(this.cmbMusicStyles);
             this.Controls.Add(this.ColourCHKList);
             this.Controls.Add(this.lblAge);

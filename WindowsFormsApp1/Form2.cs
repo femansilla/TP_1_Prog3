@@ -18,7 +18,6 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             BackColor = Color.LightSteelBlue;
-            TransparencyKey = Color.Aqua;
             btnaceptar.BackColor = Color.MediumSeaGreen;
             btncancelar.BackColor = Color.Tomato;
             txtNombre.Select();
@@ -33,8 +32,8 @@ namespace WindowsFormsApp1
         private void btncancelar_Click(object sender, EventArgs e)
         {
             GAMEOPTIONS opciones = new GAMEOPTIONS();
-            this.Hide();
             opciones.Show();
+            this.Close();
         }
 
         private void validateLengthInput(bool whatsInput)
@@ -82,43 +81,6 @@ namespace WindowsFormsApp1
 
         private PersonModel sendInfo()
         {
-            //dynamic myObject = new ExpandoObject();
-
-            //myObject.Nombre = this.txtNombre.Text;
-            //myObject.Apellido = this.txtApellido.Text;
-
-            //DateTime date = DateTime.Parse(this.dateNac.Text);
-            //myObject.DateNac = date.ToLongDateString();
-
-            //if (this.rdoMale.Checked)
-            //    myObject.sex = "Hombre";
-            //else
-            //    myObject.sex = "Mujer";
-
-            //if (cmbMusicStyles.SelectedItem != null)
-            //{
-            //    myObject.musicStyles = cmbMusicStyles.SelectedItem;
-            //}
-            //else
-            //{
-            //    myObject.musicStyles = "No selecciono ningun estilo musical.";
-            //}
-
-            //List<string> FavoriteColours = new List<string>();
-            //if (ColourCHKList.CheckedItems.Count == 0)
-            //{
-            //    FavoriteColours.Add("No selecciono ningun color.");
-            //}
-            //else
-            //{
-            //    for (int i = 0; i < this.ColourCHKList.CheckedItems.Count; i++)
-            //        FavoriteColours.Add(ColourCHKList.CheckedItems[i].ToString());
-            //}
-            //myObject.FavoriteColours = FavoriteColours;
-
-            //string json = JsonConvert.SerializeObject(myObject);
-            //return json;
-            //----------------- fin forma flayera ------------------------
             PersonModel person = new PersonModel();
 
             person.Nombre = txtNombre.Text;
@@ -159,14 +121,14 @@ namespace WindowsFormsApp1
             if(string.IsNullOrEmpty(txtNombre.Text))
             {
                 ret = false;
-                MessageBox.Show("El campo Nombre no puede estar vacio.\nVerifique por favor.");
+                MessageBox.Show("El campo Nombre es obligatorio.\nVerifique por favor.");
                 return ret;
             }
 
             if(string.IsNullOrEmpty(txtApellido.Text))
             {
                 ret = false;
-                MessageBox.Show("El campo Apellido no puede estar vacio.\nVerifique por favor.");
+                MessageBox.Show("El campo Apellido es obligatorio.\nVerifique por favor.");
                 return ret;
             }
 
@@ -175,18 +137,26 @@ namespace WindowsFormsApp1
             if (date == DateTime.Now || date >= dote)
             {
                 ret = false;
-                MessageBox.Show("La fecha de nacimiento no es valida.\nVerifique por favor.");
+                MessageBox.Show("La fecha de nacimiento no es valida.\nNo debe ser menor de 18 años.\nVerifique por favor.");
                 return ret;
             }
             if (!rdoMale.Checked && !rdoFemale.Checked)
             {
                 ret = false;
-                MessageBox.Show("Seleccione un genero por favor.");
+                MessageBox.Show("El genero es obligatorio.\nSeleccione uno por favor.");
                 return ret;
             }
 
 
             return ret;
+        }
+
+        private void selectField()
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+                txtNombre.Select();
+            else if (string.IsNullOrEmpty(txtApellido.Text))
+                txtApellido.Select();
         }
 
         private void btnaceptar_Click(object sender, EventArgs e)
@@ -195,12 +165,8 @@ namespace WindowsFormsApp1
             {
                 info frm = new info(this.sendInfo());
                 frm.ShowDialog();
-            } 
-        }
-
-        private void cmbMusicStyles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var mierda = cmbMusicStyles.SelectedItem;
+            }
+            selectField();
         }
     }
 }
